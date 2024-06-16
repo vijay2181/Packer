@@ -17,3 +17,20 @@ unzip packer_${LATEST_VERSION}_linux_amd64.zip
 sudo mv packer /usr/local/bin/
 
 packer --version
+
+packer init instance.json
+
+```
+Error: Packer plugins currently only works with HCL2 configuration templates
+Please manually install plugins with the plugins command or use a HCL2
+configuration that will do that for you.
+```
+
+```
+ls
+packer.pkr.hcl  userdata.sh instance.json
+
+packer init packer.pkr.hcl
+packer validate packer.pkr.hcl
+packer build packer.pkr.hcl
+```
