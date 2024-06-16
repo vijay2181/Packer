@@ -18,6 +18,8 @@ sudo mv packer /usr/local/bin/
 
 packer --version
 
+- dont use instance.json file, it is supported for older version of packer
+
 packer init instance.json
 
 ```
