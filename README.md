@@ -6,9 +6,13 @@ cd /opt
 
 sudo yum update -y
 
-sudo wget https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_linux_amd64.zip
+sudo yum install jq -y
 
-sudo unzip packer_1.4.2_linux_amd64.zip
+LATEST_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/packer | jq -r .current_version)
+
+wget https://releases.hashicorp.com/packer/${LATEST_VERSION}/packer_${LATEST_VERSION}_linux_amd64.zip
+
+unzip packer_${LATEST_VERSION}_linux_amd64.zip
 
 sudo mv packer /usr/local/bin/
 
